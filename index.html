@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>VIZUALIZACE MES_1</title>
+    <title>Power BI Slideshow</title>
     <style>
         html, body {
             margin: 0;
@@ -11,6 +11,7 @@
             height: 100%;
             width: 100%;
             overflow: hidden;
+            background-color: #000;
         }
         iframe {
             position: absolute;
@@ -23,13 +24,34 @@
     </style>
 </head>
 <body>
-   
-    <iframe 
-        title="VIZUALIZACE MES_1" 
-        src="https://app.powerbi.com/groups/me/reports/f5a482e3-87ec-4cd2-8ec4-caae1c315558/8ddbf3ad0fb7e93bf404?experience=power-bi" 
-        style="width: 1600px; height: 890px; border: none;" 
-        allowFullScreen="true">
-    </iframe>
+    <iframe id="slideshow" allowfullscreen="true"></iframe>
 
+    <script>
+        const urls = [
+            "https://app.powerbi.com/groups/me/reports/f5a482e3-87ec-4cd2-8ec4-caae1c315558/f334cb8685a280058deb?experience=power-bi&bookmarkGuid=d8ce09bb140d410aadd9",
+            "https://app.powerbi.com/groups/me/reports/f5a482e3-87ec-4cd2-8ec4-caae1c315558/f334cb8685a280058deb?experience=power-bi&bookmarkGuid=f6ae7307d889528aecb8",
+            "https://app.powerbi.com/groups/me/reports/f5a482e3-87ec-4cd2-8ec4-caae1c315558/f334cb8685a280058deb?experience=power-bi&bookmarkGuid=ed250d4d9c11f266dcfc",
+            "https://app.powerbi.com/groups/me/reports/f5a482e3-87ec-4cd2-8ec4-caae1c315558/f334cb8685a280058deb?experience=power-bi&bookmarkGuid=e9bc022198536cf3dce0",
+            "https://app.powerbi.com/groups/me/reports/f5a482e3-87ec-4cd2-8ec4-caae1c315558/f334cb8685a280058deb?experience=power-bi&bookmarkGuid=83547253a8a2e8ea7e15",
+            "https://app.powerbi.com/groups/me/reports/f5a482e3-87ec-4cd2-8ec4-caae1c315558/f334cb8685a280058deb?experience=power-bi&bookmarkGuid=aec492353b93b0d374a6",
+            "https://app.powerbi.com/groups/me/reports/f5a482e3-87ec-4cd2-8ec4-caae1c315558/f334cb8685a280058deb?experience=power-bi&bookmarkGuid=54ab5adf5795a62a689d",
+            "https://app.powerbi.com/groups/me/reports/f5a482e3-87ec-4cd2-8ec4-caae1c315558/f334cb8685a280058deb?experience=power-bi&bookmarkGuid=0e388a807f524e1a2c7e",
+            "https://app.powerbi.com/groups/me/reports/f5a482e3-87ec-4cd2-8ec4-caae1c315558/f334cb8685a280058deb?experience=power-bi&bookmarkGuid=489685588a9129c1e01a",
+            "https://app.powerbi.com/groups/me/reports/f5a482e3-87ec-4cd2-8ec4-caae1c315558/f334cb8685a280058deb?experience=power-bi&bookmarkGuid=f11fcb13035b11d3d996",
+            "https://app.powerbi.com/groups/me/reports/f5a482e3-87ec-4cd2-8ec4-caae1c315558/9d8eb41352a82865f1be?experience=power-bi&bookmarkGuid=30a55692d2d720b4cf4b",
+            "https://app.powerbi.com/groups/me/reports/f5a482e3-87ec-4cd2-8ec4-caae1c315558/9d8eb41352a82865f1be?experience=power-bi&bookmarkGuid=5cf9257458bf805536f3"
+        ];
+
+        let current = 0;
+        const interval = 15000; // 15 sekund na snímek
+
+        function showNext() {
+            document.getElementById("slideshow").src = urls[current];
+            current = (current + 1) % urls.length;
+        }
+
+        showNext(); // zobrazí první
+        setInterval(showNext, interval); // přepíná dál
+    </script>
 </body>
 </html>
