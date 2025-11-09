@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Power BI Slideshow</title>
+    <style>
+        html, body {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+            overflow: hidden;
+        }
+        iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+    </style>
+</head>
+<body>
+    <iframe id="slideshow" src="https://app.powerbi.com/groups/me/reports/f5a482e3-87ec-4cd2-8ec4-caae1c315558/f334cb8685a280058deb?experience=power-bi&bookmarkGuid=bac061204b8bd733aea0" allowfullscreen></iframe>
+    <script>
+        const urls = ['https://app.powerbi.com/groups/me/reports/f5a482e3-87ec-4cd2-8ec4-caae1c315558/f334cb8685a280058deb?experience=power-bi&bookmarkGuid=bac061204b8bd733aea0', 'https://app.powerbi.com/groups/me/reports/f5a482e3-87ec-4cd2-8ec4-caae1c315558/8ddbf3ad0fb7e93bf404?experience=power-bi&bookmarkGuid=ae5fb1e1d3ab2962b31d', 'https://app.powerbi.com/groups/me/reports/f5a482e3-87ec-4cd2-8ec4-caae1c315558/f334cb8685a280058deb?experience=power-bi&bookmarkGuid=9a586dd90a8032b0b996', 'https://app.powerbi.com/groups/me/reports/f5a482e3-87ec-4cd2-8ec4-caae1c315558/8ddbf3ad0fb7e93bf404?experience=power-bi&bookmarkGuid=8b83ccb2aa51b900176e', 'https://app.powerbi.com/groups/me/reports/f5a482e3-87ec-4cd2-8ec4-caae1c315558/f334cb8685a280058deb?experience=power-bi&bookmarkGuid=05940118b0e602de6f6f', 'https://app.powerbi.com/groups/me/reports/f5a482e3-87ec-4cd2-8ec4-caae1c315558/8ddbf3ad0fb7e93bf404?experience=power-bi&bookmarkGuid=d3d05e8c9d0299186fe2', 'https://app.powerbi.com/groups/me/reports/f5a482e3-87ec-4cd2-8ec4-caae1c315558/f334cb8685a280058deb?experience=power-bi&bookmarkGuid=3ac2dafdb5eb64814851', 'https://app.powerbi.com/groups/me/reports/f5a482e3-87ec-4cd2-8ec4-caae1c315558/8ddbf3ad0fb7e93bf404?experience=power-bi&bookmarkGuid=140e3883074770c11c4d', 'https://app.powerbi.com/groups/me/reports/f5a482e3-87ec-4cd2-8ec4-caae1c315558/9d8eb41352a82865f1be?experience=power-bi&bookmarkGuid=30a55692d2d720b4cf4b', 'https://app.powerbi.com/groups/me/reports/f5a482e3-87ec-4cd2-8ec4-caae1c315558/f0797d1532559ac23eb5?experience=power-bi&bookmarkGuid=5cf9257458bf805536f3'];
+        let index = 0;
+        const iframe = document.getElementById("slideshow");
+
+        setInterval(() => {
+            index = (index + 1) % urls.length;
+            iframe.src = urls[index];
+        }, 30000);
+    </script>
+</body>
+</html>
